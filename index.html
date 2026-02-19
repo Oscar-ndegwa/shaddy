@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class Attendance Management System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Class Attendance</h1>
+    <p class="subtitle">HTML • CSS • JavaScript (LocalStorage)</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Record Attendance</h2>
+
+      <form id="attendanceForm" class="grid-form" autocomplete="off">
+        <div class="field">
+          <label for="admissionNo">Admission No</label>
+          <input id="admissionNo" type="text" placeholder="e.g. ADM/1234" required />
+        </div>
+
+        <div class="field">
+          <label for="studentName">Student Name</label>
+          <input id="studentName" type="text" placeholder="e.g. Oscar Ndegwa" required />
+        </div>
+
+        <div class="field">
+          <label for="department">Department</label>
+          <input id="department" type="text" placeholder="e.g. Computer Science" required />
+        </div>
+
+        <div class="field">
+          <label for="lecturerName">Lecturer's Name</label>
+          <input id="lecturerName" type="text" placeholder="e.g. Dr. Kamau" required />
+        </div>
+
+        <div class="field">
+          <label for="week">Week (kusign in weeks)</label>
+          <select id="week" required>
+            <option value="" disabled selected>Select week</option>
+            <option>Week 1</option><option>Week 2</option><option>Week 3</option><option>Week 4</option>
+            <option>Week 5</option><option>Week 6</option><option>Week 7</option><option>Week 8</option>
+            <option>Week 9</option><option>Week 10</option><option>Week 11</option><option>Week 12</option>
+            <option>Week 13</option><option>Week 14</option><option>Week 15</option><option>Week 16</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="date">Date</label>
+          <input id="date" type="date" required />
+        </div>
+
+        <div class="field">
+          <label for="status">Status</label>
+          <select id="status" required>
+            <option value="" disabled selected>Select status</option>
+            <option>Present</option>
+            <option>Absent</option>
+            <option>Late</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="notes">Notes (optional)</label>
+          <input id="notes" type="text" placeholder="e.g. Came late due to traffic" />
+        </div>
+
+        <div class="actions full">
+          <button type="submit" class="btn primary" id="saveBtn">Save Record</button>
+          <button type="button" class="btn" id="resetBtn">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="toolbar">
+        <h2>Attendance Records</h2>
+        <div class="toolbar-actions">
+          <button class="btn" id="exportBtn" type="button">Export CSV</button>
+          <button class="btn danger" id="clearBtn" type="button">Clear All</button>
+        </div>
+      </div>
+
+      <div class="filters">
+        <input id="searchInput" type="search" placeholder="Search by admission no, name, department, lecturer..." />
+        <select id="filterWeek">
+          <option value="">All Weeks</option>
+          <option>Week 1</option><option>Week 2</option><option>Week 3</option><option>Week 4</option>
+          <option>Week 5</option><option>Week 6</option><option>Week 7</option><option>Week 8</option>
+          <option>Week 9</option><option>Week 10</option><option>Week 11</option><option>Week 12</option>
+          <option>Week 13</option><option>Week 14</option><option>Week 15</option><option>Week 16</option>
+        </select>
+
+        <select id="filterStatus">
+          <option value="">All Status</option>
+          <option>Present</option>
+          <option>Absent</option>
+          <option>Late</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Admission No</th>
+              <th>Student Name</th>
+              <th>Department</th>
+              <th>Lecturer</th>
+              <th>Week</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Notes</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="recordsTbody"></tbody>
+        </table>
+      </div>
+
+      <p class="hint">
+        Tip: Records are saved in your browser (LocalStorage).
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Made with HTML, CSS, and JavaScript.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
